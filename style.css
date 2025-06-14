@@ -1,0 +1,410 @@
+<style>
+  [dir]
+    .single-product
+    .product-wrapper
+    .product-details
+    .product-section:not(:last-child) {
+    margin: 0 0 10px;
+  }
+
+  #express-checkout-form {
+    padding: 15px 15px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(72, 72, 72);
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #888888;
+    background-color: #f5f5f5;
+  }
+
+  .radio-buttons-container {
+    font-weight: bold;
+    padding: 8px 8px;
+    border-style: none solid solid solid;
+    border-width: 3px;
+    border-color: #121972ff;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 2px 2px 2px 2px #888888;
+    background-color: #f5f5f5;
+    position: relative;
+    top: -52px;
+    margin-bottom: -49px;
+  }
+
+  #app + div span {
+    display: none;
+  }
+
+  [dir] input[type="email"],
+  [dir] input[type="number"],
+  [dir] input[type="password"],
+  [dir] input[type="search"],
+  [dir] input[type="tel"],
+  [dir] input[type="text"],
+  [dir] input[type="url"],
+  [dir] textarea {
+    border-radius: 3px;
+    border: 1px solid black;
+    padding: 10px 15px;
+    background-color: #fafafa;
+  }
+
+  .checkout-section .checkout .main .checkout-form .checkout-heading {
+    font-weight: 900;
+  }
+
+  [dir]
+    .checkout-section
+    .checkout
+    .main
+    .checkout-form
+    .checkout-select
+    select {
+    border: 1px solid #060606;
+    background-color: #fafafa;
+  }
+
+  .product-item .product-price .before {
+    font-weight: bold;
+  }
+
+  /* price ligne */
+  .product-item .product-price .before {
+    text-decoration: none;
+    position: relative;
+  }
+  .product-item .product-price .before::before {
+    top: 50%; /*tweak this to adjust the vertical position if it's off a bit due to your font family */
+    background: red; /*this is the color of the line*/
+    opacity: 0.7;
+    content: "";
+    width: 110%;
+    position: absolute;
+    height: 1.5px;
+    border-radius: 0.1em;
+    left: -5%;
+    white-space: nowrap;
+    display: block;
+    transform: rotate(-10deg);
+  }
+  .product-item .product-price .before.straight::before {
+    transform: rotate(0deg);
+    left: -1%;
+    width: 102%;
+  }
+
+  .single-product .single-price span.before {
+    text-decoration: none;
+    position: relative;
+  }
+  .single-product .single-price span.before::before {
+    top: 60%; /*tweak this to adjust the vertical position if it's off a bit due to your font family */
+    background: red; /*this is the color of the line*/
+    opacity: 0.7;
+    content: "";
+    width: 110%;
+    position: absolute;
+    height: 2px;
+    border-radius: 0.1em;
+    left: -5%;
+    white-space: nowrap;
+    display: block;
+    transform: rotate(-10deg);
+  }
+  .single-product .single-price span.before.straight::before {
+    transform: rotate(0deg);
+    left: -1%;
+    width: 102%;
+  }
+
+  .single-price {
+    padding: 10px 10px;
+  }
+
+  .takhfid {
+    color: #696969;
+    font-size: 13px;
+    padding-top: 15px;
+    padding-bottom: 7px;
+  }
+
+  #total {
+    font-weight: bold;
+  }
+
+  h6 {
+    text-align: left;
+    font-size: 1em;
+  }
+
+  h5 {
+    text-align: right;
+    position: relative;
+    top: 22px;
+  }
+
+  h88 {
+    text-align: left;
+    font-size: 1em;
+  }
+
+  h98 {
+    text-align: left;
+  }
+
+  [dir] h6 {
+    margin: -5px;
+  }
+
+  [dir] h5 {
+    margin: -5px -5px 6px 0px;
+  }
+
+  #total {
+    padding: 5px 0px;
+  }
+
+  #molakhas p {
+    display: flex;
+    flex-direction: row;
+    margin: 0px 0px -12px 0px;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  #molakhas p:before,
+  #molakhas p:after,
+  .checkout-heading:before,
+  .checkout-heading:after {
+    content: "";
+    flex: 1 1;
+    border-bottom: 1px solid;
+    margin: auto;
+  }
+  #molakhas p:before,
+  .checkout-heading:before {
+    margin-right: 10px;
+  }
+  #molakhas p:after,
+  .checkout-heading:after {
+    margin-left: 10px;
+  }
+
+  .discount_badge {
+    position: relative;
+    font-size: 14px;
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+    background-color: #121972ff;
+    color: #fff;
+    padding: 0 5px;
+    border-radius: 3px;
+    font-weight: 700;
+    margin-right: 12px;
+    top: -3px;
+    animation: zoom 1s infinite linear;
+  }
+
+  @keyframes zoom {
+    0% {
+      transform: scale(0.9);
+    }
+    10% {
+      transform: scale(1);
+    }
+    80% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(0.9);
+    }
+  }
+
+  .single-product .single-submit.shaked {
+    animation: shake-x 1s ease infinite;
+    -webkit-animation: shake-x 1s ease infinite;
+  }
+
+  .single-product .single-submit {
+    color: #ffffff;
+    background-color: #000000;
+  }
+
+  .single-product .single-submit:hover {
+    color: #000000ff;
+    background-color: #ffffffff;
+    border-color: #000000ff;
+  }
+
+  [dir] .checkout-section .checkout .main .checkout-form .checkout-heading {
+    font-size: 1.2rem;
+    font-weight: 800;
+  }
+
+  @media (max-width: 767px) {
+    [dir] .list-unstyled {
+      display: block;
+    }
+    [dir] .content-box-with-icon-section .content-box {
+      margin-top: 3rem;
+    }
+  }
+
+  @keyframes shake-x {
+    0% {
+      transform: translate(2px, 1px) rotate(0deg);
+      -webkit-transform: translate(2px, 1px) rotate(0deg);
+      -moz-transform: translate(2px, 1px) rotate(0deg);
+      -ms-transform: translate(2px, 1px) rotate(0deg);
+      -o-transform: translate(2px, 1px) rotate(0deg);
+    }
+
+    10% {
+      transform: translate(-1px, -2px) rotate(-1deg);
+      -webkit-transform: translate(-1px, -2px) rotate(-1deg);
+      -moz-transform: translate(-1px, -2px) rotate(-1deg);
+      -ms-transform: translate(-1px, -2px) rotate(-1deg);
+      -o-transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+      transform: translate(-3px, 0px) rotate(1deg);
+      -webkit-transform: translate(-3px, 0px) rotate(1deg);
+      -moz-transform: translate(-3px, 0px) rotate(1deg);
+      -ms-transform: translate(-3px, 0px) rotate(1deg);
+      -o-transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+      transform: translate(0px, 2px) rotate(0deg);
+      -webkit-transform: translate(0px, 2px) rotate(0deg);
+      -moz-transform: translate(0px, 2px) rotate(0deg);
+      -ms-transform: translate(0px, 2px) rotate(0deg);
+      -o-transform: translate(0px, 2px) rotate(0deg);
+    }
+    40% {
+      transform: translate(1px, -1px) rotate(1deg);
+      -webkit-transform: translate(1px, -1px) rotate(1deg);
+      -moz-transform: translate(1px, -1px) rotate(1deg);
+      -ms-transform: translate(1px, -1px) rotate(1deg);
+      -o-transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+      transform: translate(-1px, 2px) rotate(-1deg);
+      -webkit-transform: translate(-1px, 2px) rotate(-1deg);
+      -moz-transform: translate(-1px, 2px) rotate(-1deg);
+      -ms-transform: translate(-1px, 2px) rotate(-1deg);
+      -o-transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+      transform: translate(-3px, 1px) rotate(0deg);
+      -webkit-transform: translate(-3px, 1px) rotate(0deg);
+      -moz-transform: translate(-3px, 1px) rotate(0deg);
+      -ms-transform: translate(-3px, 1px) rotate(0deg);
+      -o-transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+      transform: translate(2px, 1px) rotate(-1deg);
+      -webkit-transform: translate(2px, 1px) rotate(-1deg);
+      -moz-transform: translate(2px, 1px) rotate(-1deg);
+      -ms-transform: translate(2px, 1px) rotate(-1deg);
+      -o-transform: translate(2px, 1px) rotate(-1deg);
+    }
+    80% {
+      transform: translate(-1px, -1px) rotate(1deg);
+      -webkit-transform: translate(-1px, -1px) rotate(1deg);
+      -moz-transform: translate(-1px, -1px) rotate(1deg);
+      -ms-transform: translate(-1px, -1px) rotate(1deg);
+      -o-transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+      transform: translate(2px, 2px) rotate(0deg);
+      -webkit-transform: translate(2px, 2px) rotate(0deg);
+      -moz-transform: translate(2px, 2px) rotate(0deg);
+      -ms-transform: translate(2px, 2px) rotate(0deg);
+      -o-transform: translate(2px, 2px) rotate(0deg);
+    }
+    100% {
+      transform: translate(1px, -2px) rotate(-1deg);
+      -webkit-transform: translate(1px, -2px) rotate(-1deg);
+      -moz-transform: translate(1px, -2px) rotate(-1deg);
+      -ms-transform: translate(1px, -2px) rotate(-1deg);
+      -o-transform: translate(1px, -2px) rotate(-1deg);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .products-grid,
+    .categories-style-1 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .content-box-with-icon-section .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 10px;
+    }
+
+    [dir] .category-item .category-details {
+      padding: 12px 0px;
+      text-align: center;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .content-box-with-icon-section .title {
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .content-box-with-icon-section .description {
+      font-size: 12px;
+      word-break: break-word;
+    }
+    .content-box-with-icon-section .icon {
+      display: block;
+      height: 45px;
+      width: 45px;
+      line-height: 45px;
+      font-size: 25px;
+    }
+    .products-grid .product-item .product-actions .button {
+      min-width: 100%;
+    }
+    .footer .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
+ <style>
+  #molakhas {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s;
+  }
+
+  #molakhas:hover {
+    background-color: #218838;
+  }
+
+  #productprice, #tarifWilayaContainer {
+    background: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-top: 10px;
+    font-family: 'Tajawal', sans-serif;
+  }
+
+  #productprice h5, #tarifWilayaContainer h5 {
+    margin: 6px 0;
+    color: #343a40;
+    font-size: 1.1rem;
+  }
+
+  #productprice h6, #tarifWilayaContainer h6 {
+    margin: 4px 0 10px;
+    font-weight: bold;
+    color: #007bff;
+    font-size: 1rem;
+  }
+</style>
+  <style>@media (max-width: 425px) {.products-style-2{grid-template-columns: repeat(2,1fr);}}</style>
